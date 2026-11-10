@@ -1,4 +1,11 @@
 import { Link } from "react-router-dom";
+import { Tooltip } from "./Tooltip";
+
+const POLICY_LINKS = [
+  { label: "Privacy Policy", tooltip: "Privacy Policy page coming soon" },
+  { label: "Terms of Service", tooltip: "Terms of Service page coming soon" },
+  { label: "Cookie Policy", tooltip: "Cookie Policy page coming soon" },
+];
 
 const Footer = () => {
   return (
@@ -141,24 +148,25 @@ const Footer = () => {
 
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-gray-400 mb-6 md:mb-0">
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Privacy Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Terms of Service</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Cookie Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
+              {POLICY_LINKS.map(({ label, tooltip }) => (
+                <Tooltip key={label} content={tooltip}>
+                  <a
+                    tabIndex={0}
+                    role="link"
+                    aria-disabled="true"
+                    className="group relative cursor-pointer rounded-lg hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 transition-colors duration-300"
+                  >
+                    <span className="relative z-10">{label}</span>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
+                  </a>
+                </Tooltip>
+              ))}
               <Link
                 to="/contact"
                 className="group relative hover:text-white transition-colors duration-300"
               >
                 <span className="relative z-10">Contact Us</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>
             <div className="text-center md:text-right">
