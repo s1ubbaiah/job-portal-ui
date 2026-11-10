@@ -161,13 +161,15 @@ const Footer = () => {
                   </a>
                 </Tooltip>
               ))}
-              <Link
-                to="/contact"
-                className="group relative hover:text-white transition-colors duration-300"
-              >
-                <span className="relative z-10">Contact Us</span>
-                <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
+              <Tooltip content="Facing a problem? Send a message to our admin team">
+                <Link
+                  to="/contact"
+                  className="group relative hover:text-white focus:text-white transition-colors duration-300"
+                >
+                  <span className="relative z-10">Contact Us</span>
+                  <div className="absolute -inset-2 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              </Tooltip>
             </div>
             <div className="text-center md:text-right">
               <div className="text-gray-400 text-sm mb-2">
